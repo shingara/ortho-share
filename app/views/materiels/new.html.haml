@@ -14,20 +14,24 @@
           %label.label{:for => 'materiel[name]'} Nom du document :
           = text_field :name, :class => 'text_field'
 
-        .group
-          %label.label{:for => 'materiel[category]'} Category :
-          = text_field :category, :class => 'text_field'
+        .columns
+          %div{:class => 'column left'}
+            .group
+              %label.label{:for => 'materiel[category]'} Categorie :
+              = select :category, :collection => Materiel::CATEGORY, :class => 'text_field'
 
-        .group
-          %label.label{:for => 'materiel[sub_category]'} Sous category :
-          = text_field :sub_category, :class => 'text_field'
+          %div{:class => 'column left'}
+            .group
+              %label.label{:for => 'materiel[sub_category]'} Sous categorie :
+              = select :sub_category, :collection => Materiel::SUB_CATEGORY, :class => 'text_field'
 
+        .clear
         .group
           %label.label{:for => 'materiel[doc]'} Doc :
           = file_field :doc
 
         %div{:class => 'group navform'}
-          = submit :send, :class => 'button'
-          or
-          = link_to 'Cancel', resource(:materiels)
+          = submit 'Créer', :class => 'button'
+          ou
+          = link_to 'Annuler', resource(:materiels)
 

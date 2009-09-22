@@ -1,6 +1,6 @@
 <div id="box">
 <div id="block-login" class="block">
-  <h2>Login</h2>
+  <h2>Connection</h2>
 
   <div class="content login">
 
@@ -24,7 +24,7 @@
 	  </div>
 	  <div class="group">
         <div class="left">
-          <label class="label right"><%= @password_param.to_s.capitalize %>:</label>
+          <label class="label right">Mot de passe :</label>
         </div>
         <div class="right">
           <input class="text_field" type="password" name="<%= @password_param.to_s %>" value="" id="<%= @password_param.to_s %>">
@@ -33,9 +33,9 @@
       </div>
       <div class="group navform">
         <div class="right">
-          <input type="submit" name="Submit" value="Log In" id="Submit" class="button">
+          <input type="submit" name="Submit" value="Se connecter" id="Submit" class="button">
           |
-          <%= link_to 'register', url(:new_user) %>
+          <%= link_to "s'enregistrer", url(:new_user) %>
         </div>
         <div class="clear"></div>
 	  </div>
