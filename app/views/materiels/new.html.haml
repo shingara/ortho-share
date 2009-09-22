@@ -11,7 +11,7 @@
       = form_for(@materiel, :action => resource(:materiels), :class => 'form') do
 
         .group
-          %label.label{:for => 'materiel[name]'} To :
+          %label.label{:for => 'materiel[name]'} Nom du document :
           = text_field :name, :class => 'text_field'
 
         .group
@@ -21,6 +21,10 @@
         .group
           %label.label{:for => 'materiel[sub_category]'} Sous category :
           = text_field :sub_category, :class => 'text_field'
+
+        .group
+          %label.label{:for => 'materiel[doc]'} Doc :
+          = file_field :doc
 
         %div{:class => 'group navform'}
           = submit :send, :class => 'button'

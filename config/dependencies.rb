@@ -25,3 +25,4 @@ dependency "shingara-merb_mongomapper", "0.1.5",:require_as => 'merb_mongomapper
 dependency "yeastymobs-machinist_mongomapper", :source => 'http://gems.github.com', :require_as => 'machinist/mongomapper'
 dependency "thin"
 dependency "randexp"
+dependency 'carrierwave'

@@ -15,7 +15,7 @@ class Materiels < Application
 
   def create
     @materiel = Materiel.new(params[:materiel].update(:from => session.user))
-    if @jmateriel.save
+    if @materiel.save
       redirect resource(:materiels, :new)
     else
       render :new
