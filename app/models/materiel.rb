@@ -19,4 +19,7 @@ class Materiel
 
   belongs_to :from, :class_name => 'User'
 
+  validates_true_for :doc,
+    :logic => lambda { !self.doc.filename.nil? },
+    :message => 'doit etre présent'
 end
