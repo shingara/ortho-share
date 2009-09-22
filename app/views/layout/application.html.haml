@@ -7,15 +7,15 @@
   %body
     #container
       #header
-        %h1= link_to 'Ortho-share', '/'
+        %h1= link_to 'Ortho-partage', '/'
         #user-navigation
           %ul
             - unless authenticated?
               %li= link_to('Login', url(:login))
-              %li= link_to('Register', url(:new_user))
+              %li= link_to("S'enregistrer", url(:new_user))
             - else
-              %li= link_to('My profile', url(:edit_user, session.user))
-              %li= link_to 'Logout', url(:logout)
+              %li= link_to('Mon profil', url(:edit_user, session.user))
+              %li= link_to 'Déconnection', url(:logout)
           .clear
         #main-navigation
           %ul
@@ -32,9 +32,6 @@
         #footer
           .block
             %p
-              Powered by
-              %a{:href => 'http://blog.shingara.fr'} Shingara
-              = '-'
-              0.1.0
+              Version 0.1.0
         .clear
       .clear

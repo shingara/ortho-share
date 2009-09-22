@@ -16,7 +16,7 @@ class Materiels < Application
   def create
     @materiel = Materiel.new(params[:materiel].update(:from => session.user))
     if @materiel.save
-      redirect resource(:materiels, :new)
+      redirect resource(:materiels), :message => {:notice => 'Votre document a été créé avec succès'}
     else
       render :new
     end

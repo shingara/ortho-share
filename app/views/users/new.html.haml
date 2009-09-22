@@ -1,6 +1,6 @@
 #box
   #block-signup.block
-    %h2 Create an account
+    %h2 Créer un compte
 
     .content
       = message[:error]
@@ -22,18 +22,18 @@
           .clear
         .group
           .left
-            %label.label{:for => 'user[password]'} Password
+            %label.label{:for => 'user[password]'} Mot de passe
           .right
             = password_field  :password, :class => 'text_field'
           .clear
         .group
           .left
-            %label.label{:for => 'user[password_confirmation]'} Password confirmation
+            %label.label{:for => 'user[password_confirmation]'} Confirmation du mot de passe
           .right
             = password_field  :password_confirmation, :class => 'text_field'
           .clear
 
         %div{:class => 'group navform'}
           .right
-            = submit "Create", :class => 'button'
+            = submit "Créer votre compte", :class => 'button'
           .clear

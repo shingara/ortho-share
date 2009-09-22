@@ -9,29 +9,29 @@ class Users < Application
   def new
     only_provides :html
     @user = User.new
-    @title = "New user"
+    @title = "Nouveau compte"
     display @user
   end
 
   def edit(id)
     only_provides :html
     @user = session.user
-    @title = "edit my profile"
+    @title = "modifier mon profil"
     display @user
   end
 
   def create(user)
     @user = User.new(user)
     if @user.save
-      redirect resource(@user, :edit), :message => {:notice => "User was successfully created"}
+      redirect resource(@user, :edit), :message => {:notice => "Votre compte a été créé avec succès"}
     else
-      message[:error] = "User failed to be created"
+      message[:error] = "Le compte n'a pas été créé"
       render :new
     end
   end
 
   def update(id, user)
-    @user = User.get(id)
+    @user = User.find(id)
     raise NotFound unless @user
     if @user.update_attributes(user)
        redirect '/'
@@ -53,7 +53,7 @@ class Users < Application
   private
 
   def only_own_account
-    @user = User.get(params[:id])
+    @user = User.find(params[:id])
     unless @user == session.user
       raise Unauthenticated
     end

@@ -1,6 +1,6 @@
 #block-forms.block
   .content
-    %h2 Edit your profile
+    %h2 Modifier mon profil
 
     .inner
       .flash
@@ -11,10 +11,10 @@
           %label.label{:for => 'user[email]'} Email
           = text_field :email, :class => 'text_field'
         .group
-          %label.label{:for => 'user[password]'} Password
+          %label.label{:for => 'user[password]'} Mot de Passe
           = password_field :password, :class => 'text_field'
         .group
-          %label.label{:for => 'user[password_confirmation]'} Password confirmation
+          %label.label{:for => 'user[password_confirmation]'} Confirmation du mot de passe
           = password_field :password_confirmation, :class => 'text_field'
         %div{:class => 'group navform'}
           = submit "Update", :class => 'button'
