@@ -8,7 +8,7 @@ class Materiel
   SUB_CATEGORY = ['langage oral',
     'langage écrit']
   
-  key :name, String, :required => true
+  key :name, String, :required => true, :unique => true
   key :category, String, :required => true
   key :sub_category, String, :required => true
   key :from_id, String, :required => true
