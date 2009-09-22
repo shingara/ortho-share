@@ -19,7 +19,9 @@
           .clear
         #main-navigation
           %ul
-            %li.first{:class => 'current'}= link_to 'Materiel', resource(:materiels)
+            %li.first{:class => 'current'}= link_to 'Materiels', resource(:materiels, :materiels)
+            %li{:class => ''}= link_to 'Tests', resource(:materiels, :tests)
+            %li.last{:class => ''}= link_to 'Documentations', resource(:materiels, :documentations)
           .clear
 
         - if message[:notice]

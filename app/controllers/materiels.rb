@@ -8,6 +8,27 @@ class Materiels < Application
     render
   end
 
+  def documentations
+    @materiels = Materiel.paginate(:conditions => {:category => 'documentation'},
+                                   :per_page => 10, 
+                                   :page => (params[:page] || 1))
+    render :index
+  end
+
+  def tests
+    @materiels = Materiel.paginate(:conditions => {:category => 'test'},
+                                   :per_page => 10, 
+                                   :page => (params[:page] || 1))
+    render :index
+  end
+
+  def materiels
+    @materiels = Materiel.paginate(:conditions => {:category => 'materiel'},
+                                   :per_page => 10, 
+                                   :page => (params[:page] || 1))
+    render :index
+  end
+
   def new
     @materiel = Materiel.new
     display @materiel
