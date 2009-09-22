@@ -1,0 +1,27 @@
+#block-tables.block
+
+  .content
+    .inner
+      %table.table
+        %thead
+          %tr
+            %th.first Id
+            %th To
+            %th Body
+            %th Requested at
+            %th.last Send at
+        %tbody
+          - @materiels.each do |materiel|
+            %tr{:class => "#{cycle('odd','even')} materiel" }
+              %td 1
+              %td= materiel.to
+              %td= materiel.text
+              %td= materiel.created_at
+              %td= materiel.send_at
+
+      = will_paginate @materiels
+
+      .actions-bar
+        .actions
+          = link_to 'New', resource(:materiels, :new)
+
