@@ -1,6 +1,11 @@
+class Unactivated < Exception
+  
+end
+
 class Materiels < Application
 
   before :ensure_authenticated
+  before :need_activated
 
   def index
     @conditions = {}
@@ -23,6 +28,14 @@ class Materiels < Application
       redirect resource(:materiels), :message => {:notice => 'Votre document a été créé avec succès'}
     else
       render :new
+    end
+  end
+
+  private
+
+  def need_activated
+    unless session.user && session.user.activated?
+      raise Unactivated
     end
   end
 

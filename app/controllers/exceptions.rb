@@ -14,4 +14,8 @@ class Exceptions < Merb::Controller
     render :not_found, :format => :html, :layout => false, :status => 404
   end
 
+  def unactivated
+    render
+  end
+
 end
