@@ -13,6 +13,16 @@ class Users < Application
     display @user
   end
 
+  ## 
+  # Check all user in application
+  # We can activated or not after
+  #
+  def index
+    @users = User.paginate(:page => (params[:page] || 1),
+                           :per_page => 10)
+    display @users
+  end
+
   def edit(id)
     only_provides :html
     @user = session.user

@@ -1,16 +1,21 @@
-%h1
-  Users controller, index action
-%p
-  Edit this file in
-  %tt
-    app/views/users/index.html.erb
-%table
-  %tr
-  - for user in @users
-    %tr
-      %td
-        = link_to 'Show', url(:user, user)
-      %td
-        = link_to 'Edit', url(:edit_user,  user)
+#block-tables.block
 
-= link_to 'New', url(:new_user)
+  .content
+    %h2 Utilisateurs de l'application
+    .inner
+      %table.table
+        %thead
+          %tr
+            %th Login
+            %th Email
+            %th Nombre de document
+            %th.last Activé
+        %tbody
+          - @users.each do |user|
+            %tr{:class => "#{cycle('odd','even')} user" }
+              %td= user.login
+              %td= user.email
+              %td= user.nb_document
+              %td= user.activated ? 'oui' : 'non'
+
+      = will_paginate @users

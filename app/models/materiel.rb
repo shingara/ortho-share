@@ -22,4 +22,12 @@ class Materiel
   validates_true_for :doc,
     :logic => lambda { !self.doc.filename.nil? },
     :message => 'doit etre présent'
+
+  after_create :up_nb_document
+
+  def up_nb_document
+    from.nb_document = from.nb_document.next
+    from.save!
+  end
+
 end
