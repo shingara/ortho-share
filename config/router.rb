@@ -30,7 +30,7 @@ Merb::Router.prepare do
   # RESTful routes
   resources :materiels
   identify User => :id do
-    resources :users
+    resources :users, :member => {:activate => :get}
   end
   
   # Adds the required routes for merb-auth using the password slice

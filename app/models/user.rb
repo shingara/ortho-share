@@ -18,6 +18,11 @@ class User
 
   before_save :update_nb_document
 
+  def activate!
+    self.activated = true
+    save!
+  end
+
   def update_nb_document
     self.nb_document = Materiel.count({:from_id => self.id})
   end

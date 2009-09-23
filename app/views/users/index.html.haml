@@ -9,7 +9,8 @@
             %th Login
             %th Email
             %th Nombre de document
-            %th.last Activé
+            %th Activé?
+            %th.last
         %tbody
           - @users.each do |user|
             %tr{:class => "#{cycle('odd','even')} user" }
@@ -17,5 +18,6 @@
               %td= user.email
               %td= user.nb_document
               %td= user.activated ? 'oui' : 'non'
+              %td= user.activated ? '' : link_to('activer', resource(user,:activate))
 
       = will_paginate @users

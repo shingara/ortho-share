@@ -23,6 +23,12 @@ class Users < Application
     display @users
   end
 
+  def activate(id)
+    @user = User.find(id)
+    @user.activate!
+    redirect resource(:users)
+  end
+
   def edit(id)
     only_provides :html
     @user = session.user
