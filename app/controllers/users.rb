@@ -3,6 +3,7 @@ class Users < Application
 
   before :ensure_authenticated, :exclude => [:new, :create]
   before :only_own_account, :only => [:edit, :update]
+  before :need_admin, :only => [:index, :activate]
 
   params_accessible :user => [:login, :firstname, :lastname, :email, :password, :password_confirmation]
 
@@ -71,6 +72,12 @@ class Users < Application
   def only_own_account
     @user = User.find(params[:id])
     unless @user == session.user
+      raise Unauthenticated
+    end
+  end
+
+  def need_admin
+    unless session.user && session.user.global_admin?
       raise Unauthenticated
     end
   end
