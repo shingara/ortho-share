@@ -15,6 +15,8 @@
               %li= link_to("S'enregistrer", url(:new_user))
             - else
               %li= link_to('Mon profil', url(:edit_user, session.user))
+              - if session.user && session.user.global_admin?
+                %li= link_to('Administration', resource(:users))
               %li= link_to 'Déconnection', url(:logout)
           .clear
         #main-navigation
