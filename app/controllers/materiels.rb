@@ -3,30 +3,13 @@ class Materiels < Application
   before :ensure_authenticated
 
   def index
-    @materiels = Materiel.paginate(:per_page => 10, 
+    @conditions = {}
+    @conditions[:category] = params[:category] || Materiel::CATEGORY.first
+    @conditions[:sub_category] = params[:sub_category] || Materiel::SUB_CATEGORY.first
+    @materiels = Materiel.paginate(:conditions => @conditions,
+                                   :per_page => 10, 
                                    :page => (params[:page] || 1))
     render
-  end
-
-  def documentations
-    @materiels = Materiel.paginate(:conditions => {:category => 'documentation'},
-                                   :per_page => 10, 
-                                   :page => (params[:page] || 1))
-    render :index
-  end
-
-  def tests
-    @materiels = Materiel.paginate(:conditions => {:category => 'test'},
-                                   :per_page => 10, 
-                                   :page => (params[:page] || 1))
-    render :index
-  end
-
-  def materiels
-    @materiels = Materiel.paginate(:conditions => {:category => 'materiel'},
-                                   :per_page => 10, 
-                                   :page => (params[:page] || 1))
-    render :index
   end
 
   def new

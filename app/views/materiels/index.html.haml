@@ -1,3 +1,9 @@
+.secondary-navigation
+  %ul
+    - Materiel::SUB_CATEGORY.each do |sub_category|
+      %li{:class => ''}= link_to(sub_category, url(:materiels, :category => @conditions[:category], :sub_category => sub_category))
+  .clear
+
 #block-tables.block
 
   .content
