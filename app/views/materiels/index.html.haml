@@ -13,12 +13,14 @@
           %tr
             %th Ortho-partageur
             %th nom du document
+            %th description
             %th.last Lien de téléchargement
         %tbody
           - @materiels.each do |materiel|
             %tr{:class => "#{cycle('odd','even')} materiel" }
               %td= materiel.from.login
               %td= materiel.name
+              %td= materiel.description
               %td= link_to('Télécharger', materiel.doc.url)
 
       = will_paginate @materiels

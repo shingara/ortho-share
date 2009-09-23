@@ -14,6 +14,10 @@
           %label.label{:for => 'materiel[name]'} Nom du document :
           = text_field :name, :class => 'text_field'
 
+        .group
+          %label.label{:for => 'materiel[description]'} Description:
+          = text_area(@materiel.description, :name => 'materiel[description]', :cols => 40, :rows => 15, :class => 'text_area')
+
         .columns
           %div{:class => 'column left'}
             .group
