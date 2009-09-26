@@ -6,7 +6,7 @@ class User
 
   extend Merb::Authentication::Mixins::SaltedUser::MongoMapperClassMethods
 
-  key :login, String, :required => true
+  key :login, String, :required => true, :unique => true
   key :email, String, :required => true
   key :global_admin, Boolean, :default => false
   key :activated, Boolean, :default => false
@@ -19,8 +19,12 @@ class User
   before_save :update_nb_document
 
   def activate!
-    self.activated = true
-    save!
+    unless self.activated
+      self.activated = true
+      save!
+    else
+      false
+    end
   end
 
   def update_nb_document

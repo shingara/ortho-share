@@ -26,7 +26,12 @@ class Users < Application
 
   def activate(id)
     @user = User.find(id)
-    @user.activate!
+    if @user.activate!
+      send_mail(UserMailer, :account_activate, {:from => ADMIN_EMAIL,
+                                                :to => @user.email,
+                                                :subject => '[ORTHO-PARTAGE] Compte a été validé'},
+                                                {:user => self})
+    end
     redirect resource(:users)
   end
 
