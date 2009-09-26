@@ -4,5 +4,10 @@ class AdminMailer < Merb::MailController
     @user = params[:user]
     render_mail
   end
+
+  def new_document
+    @document = params[:document]
+    render_mail
+  end
   
 end

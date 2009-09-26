@@ -25,6 +25,10 @@ class Materiels < Application
   def create
     @materiel = Materiel.new(params[:materiel].update(:from => session.user))
     if @materiel.save
+      send_mail(AdminMailer, :new_document, {:from => ADMIN_EMAIL,
+                                             :to => User.admins.map(&:email).join(','),
+                                             :subject => '[ORTHO-PARTAGE] un nouveau document a été ajouté'},
+                                            {:document => @materiel})
       redirect resource(:materiels), :message => {:notice => 'Votre document a été créé avec succès'}
     else
       render :new
