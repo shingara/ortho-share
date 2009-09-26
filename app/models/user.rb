@@ -27,5 +27,9 @@ class User
     self.nb_document = Materiel.count({:from_id => self.id})
   end
 
+  def self.admins
+    User.all(:conditions => {:global_admin => true})
+  end
+
 
 end

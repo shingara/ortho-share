@@ -17,6 +17,7 @@ end
  
 Merb::BootLoader.before_app_loads do
   # This will get executed after dependencies have been loaded but before your app's classes have loaded.
+  Merb::Mailer.delivery_method = :sendmail
 end
  
 Merb::BootLoader.after_app_loads do
@@ -27,3 +28,5 @@ def load_from_source(src)
   $:.unshift File.join(Merb.root, "src/#{src}/lib")
   require "src/#{src}/init.rb"
 end
+
+ADMIN_EMAIL = 'admin@ortho-partage.shingara.fr'
