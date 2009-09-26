@@ -1,14 +1,15 @@
 ---
 # This is a sample database file for the CouchRest ORM
 :development: &defaults
-  :database: 'jabber-notification'
-  :host: localhost:5984
-  :create_db_if_absent: true
+  :database_prefix: 
+  :database_suffix: _dev
+  :database: ortho_share
+  :host: localhost
+  :port: 27017
 
 :test:
   <<: *defaults
-  :database: sample_test
+  :database_suffix: _test
 
 :production:
   <<: *defaults
-  :database: sample_production
