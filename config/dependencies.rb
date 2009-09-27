@@ -17,9 +17,9 @@ dependency "merb-auth-core", merb_gems_version
 dependency "merb-auth-more", merb_gems_version
 dependency "merb-auth-slice-password", merb_gems_version
 dependency "merb-param-protection", merb_gems_version
+dependency "merb-mailer", merb_gems_version
 dependency "merb-exceptions", merb_gems_version
 dependency "merb-haml", merb_gems_version
-dependency "merb-exceptions", merb_gems_version
 
 dependency "mongomapper", :require_as => 'mongomapper'
 dependency "shingara-merb_mongomapper", "0.1.5",:require_as => 'merb_mongomapper'
