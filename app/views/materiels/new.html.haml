@@ -8,7 +8,7 @@
         = message[:error]
         = error_messages_for @materiel
 
-      = form_for(@materiel, :action => resource(:materiels), :class => 'form') do
+      = form_for(@materiel, :action => url(:upload), :class => 'form') do
 
         .group
           %label.label{:for => 'materiel[name]'} Nom du document :
