@@ -334,3 +334,17 @@ ul.list li .item .avatar {
 }
 
 
+.bar {
+  width: 300px;
+}
+
+#progress {
+  background: #eee;
+  border: 1px solid #222;
+}
+#progressbar {
+  width: 0px;
+  height: 24px;
+  background: #333;
+}
+
