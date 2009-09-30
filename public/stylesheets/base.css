@@ -348,3 +348,11 @@ ul.list li .item .avatar {
   background: #333;
 }
 
+div.actions a.button {
+  background:#EEEEEE none repeat scroll 0 0;
+  border:1px solid #262626;
+  color:#262626;
+  cursor:pointer;
+  padding:2px 5px;
+  text-decoration:none;
+}

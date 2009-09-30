@@ -23,9 +23,9 @@
               %td= materiel.description
               %td= link_to('Télécharger', materiel.doc.url)
 
-      = will_paginate @materiels
 
       .actions-bar
+        = will_paginate @materiels
         .actions
-          = link_to 'Ajouter un document', resource(:materiels, :new)
+          = link_to 'Ajouter un document', resource(:materiels, :new), :class => 'button'
 
