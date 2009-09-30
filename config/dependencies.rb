@@ -27,3 +27,4 @@ dependency "yeastymobs-machinist_mongomapper", :source => 'http://gems.github.co
 dependency "thin"
 dependency "randexp"
 dependency 'carrierwave'
+dependency "uuid"

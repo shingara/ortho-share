@@ -4,6 +4,8 @@ end
 
 class Materiels < Application
 
+  provides :html, :js, :json
+
   before :ensure_authenticated
   before :need_activated
 
@@ -19,6 +21,7 @@ class Materiels < Application
 
   def new
     @materiel = Materiel.new
+    @uuid = UUID.generate
     display @materiel
   end
 

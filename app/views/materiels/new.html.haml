@@ -2,7 +2,7 @@
   = js_include_tag 'jquery.nginxUploadProgress'
   :javascript
     $(document).ready(function() { 
-      jQuery.nginxUploadProgress({uuid: "qsdfqklsdfqsdjfklqsdbf"}); // Everything happens in jquery.nginxUploadProgress.js
+      jQuery.nginxUploadProgress({uuid: '#{@uuid}'}); // Everything happens in jquery.nginxUploadProgress.js
     });
 
 
@@ -19,7 +19,7 @@
         = message[:error]
         = error_messages_for @materiel
 
-      = form_for(@materiel, :action => url(:upload, 'X-Progress-ID' => 'qsdfqklsdfqsdjfklqsdbf'), :class => 'form', :id => 'upload') do
+      = form_for(@materiel, :action => url(:upload, 'X-Progress-ID' => @uuid), :class => 'form', :id => 'upload') do
 
         .group
           %label.label{:for => 'materiel[name]'} Nom du document :
@@ -44,7 +44,6 @@
         .group
           %label.label{:for => 'materiel[doc]'} Doc :
           = file_field :doc
-          %input{:name => 'iframe', :type => 'hidden', :value => 'true'}
 
         %div{:class => 'group navform'}
           = submit 'Upload', :class => 'button', :id=>'sub_up', :name => 'sub_up'
