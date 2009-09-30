@@ -11,11 +11,8 @@
 
     %h2 Ajouter un nouveau document
 
-    #uploader Uploader
-
     .inner
       .flash
-        #error Error
         = message[:error]
         = error_messages_for @materiel
 
@@ -50,7 +47,8 @@
           ou
           = link_to 'Annuler', resource(:materiels)
 
-        #uploading
+        #uploading{:style => 'display:none;'}
+          %h2 Envoi du document en cours
           #progress.bar
             #progressbar
           #eta

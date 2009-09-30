@@ -49,35 +49,28 @@ jQuery.nginxUploadProgressFetch = function(e, nginx_progress_url, progress_bar_i
        eta_seconds = ((upload.size / upload.received) * jQuery.nginxUploadProgress.inum) - jQuery.nginxUploadProgress.inum;
 
        if (eta_seconds < 60) {
-         eta_str = "under a minute"
+         eta_str = "Moins d'une minute"
        } else if (eta_seconds < (60*5)) {
-         eta_str = "a few minutes"
+         eta_str = "encore quelque minute"
        } else if (eta_seconds < (60*15)) {
-         eta_str = "fifteen minutes"
+         eta_str = "15 minutes"
        } else if (eta_seconds < (60*30)) {
-         eta_str = "about half an hour"
+         eta_str = "30 minutes"
        } else if (eta_seconds < (60*45)) {
-         eta_str = "around 45 minutes"
+         eta_str = "45 minutes"
        } else if (eta_seconds < (60*60)) {
-         eta_str = "less than an hour"
+         eta_str = "un peu moins d'une heure"
        } else if (eta_seconds > (60*60)) {
-         eta_str = "over an hour";
+         eta_str = "plus d'une heure";
        } else if (eta_seconds > (60*60*2)) {
-         eta_str = "a few hours";
+         eta_str = "quelque heure";
        } else if (eta_seconds > (60*60*3)) {
-         eta_str = "several hours";
+         eta_str = "plusieurs heures";
        } else if (eta_seconds > (60*60*6)) {
-         eta_str = "quite a long time... at least 6 hours";
+         eta_str = "un très long temps... au moins 6 heures";
        }
 
        $("#eta").html(eta_str);
-     } else if (upload.state == 'error') { 
-       $('#uploading').hide();
-       if (upload.status == 413) {
-         $('#error').html("Sorry, that video file is too large. Could you resave it as a smaller one (under 60MB) please?");
-       } else {
-         $('#error').html('Unfortunately there was an error uploading your video. We have been notified of this issue. Please try uploading your video again shortly.');
-       }
      }
    }
  });
