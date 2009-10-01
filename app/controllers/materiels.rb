@@ -18,7 +18,7 @@ class Materiels < Application
                                    :per_page => 10, 
                                    :page => @page)
     @nb_materiels = Materiel.count(@conditions)
-    @num_start_element = (@page.to_i * 10) - 9
+    @num_start_element = @nb_materiels > 0 ? (@page.to_i * 10) - 9 : 0
     @num_end_element = @page.to_i * 10
     @num_end_element = @nb_materiels if @nb_materiels < @num_end_element
     render
