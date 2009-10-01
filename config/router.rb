@@ -29,7 +29,7 @@ Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do
   # RESTful routes
   match('/upload').to(:controller => 'materiels', :action => 'create').name(:upload)
-  resources :materiels
+  resources :materiels, :identify => :id
   identify User => :id do
     resources :users, :member => {:activate => :get}
   end

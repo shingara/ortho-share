@@ -30,6 +30,11 @@ class Materiels < Application
     display @materiel
   end
 
+  def show(id)
+    @materiel = Materiel.find(id)
+    display @materiel
+  end
+
   def create
     @materiel = Materiel.new(params[:materiel].update(:from => session.user))
     if @materiel.save

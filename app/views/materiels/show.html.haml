@@ -1,0 +1,14 @@
+#block-lists.block
+  .content
+    %h2= "#{@materiel.name}"
+    .inner
+      #materiel
+        %p.date
+          Uploadé par
+          =@materiel.from.login
+          |
+          =@materiel.created_at
+
+        %p= @materiel.description
+
+        %p= link_to('Télécharger', @materiel.doc.url)
