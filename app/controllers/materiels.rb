@@ -13,9 +13,14 @@ class Materiels < Application
     @conditions = {}
     @conditions[:category] = params[:category] || Materiel::CATEGORY.first
     @conditions[:sub_category] = params[:sub_category] || Materiel::SUB_CATEGORY.first
+    @page = params[:page] || 1
     @materiels = Materiel.paginate(:conditions => @conditions,
                                    :per_page => 10, 
-                                   :page => (params[:page] || 1))
+                                   :page => @page)
+    @nb_materiels = Materiel.count(@conditions)
+    @num_start_element = (@page.to_i * 10) - 9
+    @num_end_element = @page.to_i * 10
+    @num_end_element = @nb_materiels if @nb_materiels < @num_end_element
     render
   end
 
