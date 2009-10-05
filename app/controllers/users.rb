@@ -35,6 +35,11 @@ class Users < Application
     redirect resource(:users)
   end
 
+  def show(id)
+    @user = User.find(id)
+    display @user
+  end
+
   def edit(id)
     only_provides :html
     @user = session.user

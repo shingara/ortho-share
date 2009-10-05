@@ -1,10 +1,14 @@
-%h1
-  Users controller, show action
-%p
-  Edit this file in
-  %tt
-    app/views/users/show.html.erb
+- @title = "Utilisateur : #{@user.login}"
 
-= link_to 'Edit',  url(:edit_user,  @user)
-|
-= link_to 'Back', url(:users)
+#block-lists.block
+  .content
+    %h2= "#{@user.login}"
+    .inner
+      #user
+        %p
+          Créer depuis :
+          = @user.created_at
+        %p
+          Ajout de
+          = @user.nb_document
+          Documents
