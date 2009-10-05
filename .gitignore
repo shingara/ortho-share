@@ -16,6 +16,7 @@ schema/*.db
 .hg/*
 .svn/*
 gems/gems/*
+gems/cache/*.gem
 gems/specifications/*
 merb_profile_results
 config/database.yml
