@@ -8,6 +8,7 @@ class Materiels < Application
 
   before :ensure_authenticated
   before :need_activated
+  before :need_admin, :only => [:delete, :destroy]
 
   def index
     @conditions = {}
@@ -46,6 +47,16 @@ class Materiels < Application
     else
       render :new
     end
+  end
+
+  def delete(id)
+    @materiel = Materiel.find(id)
+    display @materiel
+  end
+  
+  def destroy(id)
+    Materiel.destroy(id)
+    redirect resource(:materiels), :message => {:notice => 'Document supprimé'}
   end
 
   private

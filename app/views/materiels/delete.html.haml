@@ -1,0 +1,10 @@
+#block-lists.block
+  .content
+    %h2= "#{@materiel.name}"
+    .inner
+      #materiel
+        %p 
+          Voulez vous vraiment supprimer ce documents ?
+        = form_for(@materiel, :action => resource(@materiel), :method => 'delete', :class => 'form') do
+          %div{:class => 'group navform'}
+            =submit "Supprimer", :class => 'button' 

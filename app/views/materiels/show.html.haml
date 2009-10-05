@@ -11,4 +11,8 @@
 
         %p= @materiel.description
 
-        %p= link_to('Télécharger', @materiel.doc.url)
+        %p
+          = link_to('Télécharger', @materiel.doc.url)
+          - if admin?
+            ou
+            = link_to('Supprimer', resource(@materiel, :delete))

@@ -8,5 +8,9 @@ module Merb
     def authenticated?
       session.user
     end
+
+    def admin?
+      authenticated? && session.user.global_admin?
+    end
   end
 end
