@@ -20,7 +20,7 @@
           - @materiels.each do |materiel|
             %tr{:class => "#{cycle('odd','even')} materiel" }
               %td= link_to materiel.name, resource(materiel)
-              %td= materiel.from.login
+              %td= link_to materiel.from.login, resource(materiel.from)
               %td= materiel.description
               %td= link_to('Télécharger', materiel.doc.url)
 
