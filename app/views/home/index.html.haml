@@ -1,0 +1,23 @@
+#block-forms.block
+  .content
+    .inner
+      #inside-block-left
+        .block
+          %h3 Dernier documents ajoutés
+          %ul.navigation
+            - Materiel.find(:all, :limit => 10, :order => 'created_at').each do |materiel|
+              %li=link_to(materiel.name, resource(materiel))
+
+        .block
+          %h3 10 plus gros uploaders
+          %ul.navigation
+            - User.find(:all, :limit => 10, :order => 'nb_document').each do |user|
+              %li=link_to(user.login, resource(user))
+
+      #inside-block-right
+        .block
+          %h3 10 derniers incrits
+          %ul.navigation
+            - User.find(:all, :limit => 10, :conditions => {:activated => true}, :order => 'created_at').each do |user|
+              %li=link_to(user.login, resource(user))
+      .clear

@@ -44,5 +44,5 @@ Merb::Router.prepare do
   default_routes
   
   # Change this for your home page to be available at /
-  match('/').to(:controller => 'materiels', :action =>'index').name(:root)
+  match('/').to(:controller => 'home', :action =>'index').name(:root)
 end
