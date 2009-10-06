@@ -24,7 +24,6 @@ dependency "merb-haml", merb_gems_version
 dependency "mongodb-mongo_ext", :require_as => false
 dependency "mongomapper", "0.4.1", :require_as => 'mongomapper'
 dependency "merb_mongomapper", "0.1.6", :require_as => 'merb_mongomapper'
-dependency "machinist_mongomapper", "0.9.4", :source => 'http://gems.github.com', :require_as => 'machinist/mongomapper'
 dependency "randexp"
 dependency 'carrierwave'
 dependency "uuid"
