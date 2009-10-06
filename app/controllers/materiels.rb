@@ -8,7 +8,7 @@ class Materiels < Application
 
   before :ensure_authenticated
   before :need_activated
-  before :need_admin, :only => [:delete, :destroy]
+  before :need_admin, :only => [:delete, :destroy, :edit, :update]
 
   def index
     @conditions = {}
@@ -34,6 +34,20 @@ class Materiels < Application
   def show(id)
     @materiel = Materiel.find(id)
     display @materiel
+  end
+
+  def edit(id)
+    @materiel = Materiel.find(id)
+    display @materiel
+  end
+
+  def update(id, materiel)
+    @materiel = Materiel.find(id)
+    if @materiel.update_attributes(materiel)
+      redirect resource(@materiel)
+    else
+      render :edit
+    end
   end
 
   def create

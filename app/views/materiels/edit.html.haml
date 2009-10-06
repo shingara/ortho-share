@@ -1,0 +1,47 @@
+- throw_content(:head) do
+  = js_include_tag 'jquery.nginxUploadProgress'
+  :javascript
+    $(document).ready(function() { 
+      jQuery.nginxUploadProgress({uuid: '#{@uuid}'}); // Everything happens in jquery.nginxUploadProgress.js
+    });
+
+
+#block-forms.block
+  .content
+
+    %h2 
+      Modifier le document 
+      = @materiel.name
+
+    .inner
+      .flash
+        = message[:error]
+        = error_messages_for @materiel
+
+      = form_for(@materiel, :action => resource(@materiel), :class => 'form', :id => 'upload') do
+
+        .group
+          %label.label{:for => 'materiel[name]'} Nom du document :
+          = text_field :name, :class => 'text_field'
+
+        .group
+          %label.label{:for => 'materiel[description]'} Description:
+          = text_area(@materiel.description, :name => 'materiel[description]', :cols => 40, :rows => 15, :class => 'text_area')
+
+        .columns
+          %div{:class => 'column left'}
+            .group
+              %label.label{:for => 'materiel[category]'} Categorie :
+              = select :category, :collection => Materiel::CATEGORY, :class => 'text_field'
+
+          %div{:class => 'column left'}
+            .group
+              %label.label{:for => 'materiel[sub_category]'} Sous categorie :
+              = select :sub_category, :collection => Materiel::SUB_CATEGORY, :class => 'text_field'
+
+        .clear
+
+        %div{:class => 'group navform'}
+          = submit 'Modifier', :class => 'button', :id=>'sub_up', :name => 'sub_up'
+          ou
+          = link_to 'Annuler', resource(:materiels)
